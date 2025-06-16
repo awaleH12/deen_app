@@ -1,0 +1,58 @@
+/* Footer Styles */
+.page-footer {
+  background-color: var(--secondary-color);
+  color: var(--body-bg-color);
+  padding: 2rem 0;
+}
+
+.footer_links a {
+  color: var(--bg-white);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer_links a:hover {
+  color: var(--tertiary-color);
+}
+
+.copy_righ_info {
+  color: var(--ancent-color);
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.copy_righ_info a {
+  color: var(--alt-bg-color);
+  margin-left: 0.5rem;
+  text-decoration: none;
+}
+
+.copy_righ_info a:hover {
+  color: var(--tertiary-color);
+}
+
+/* Dark Mode Styles for Footer */
+.page-footer.dark-mode {
+  background-color: var(--coptright-color);
+  color: var(--body-text-primary);
+}
+
+.footer_links a.dark-mode {
+  color: var(--secondary-color);
+}
+
+.footer_links a.dark-mode:hover {
+  color: var(--primary-color);
+}
+
+.copy_righ_info.dark-mode {
+  color: var(--body-text-primary);
+}
+
+.copy_righ_info a.dark-mode {
+  color: var(--secondary-color);
+}
+
+.copy_righ_info a.dark-mode:hover {
+  color: var(--primary-color);
+}

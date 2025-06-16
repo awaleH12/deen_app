@@ -1,0 +1,56 @@
+{% extends "deen_app/layouts/base.html" %}
+{% load static %}
+{% block title %}Register | Deen App{% endblock %}
+{% block content %}
+<main>
+  <section class="register-section container" style="margin-top: 5rem; max-width: 500px;">
+    <h1 class="mb-4">Create Account</h1>
+    <a href="/accounts/google/login/" class="btn btn-danger w-100 mb-3">
+      <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" style="height:20px; margin-right:8px;">Sign up with Google
+    </a>
+    <form method="post" class="needs-validation" novalidate style="background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label for="id_username" class="form-label">Username</label>
+        {{ form.username }}
+      </div>
+      <div class="mb-3">
+        <label for="id_first_name" class="form-label">First Name</label>
+        {{ form.first_name }}
+      </div>
+      <div class="mb-3">
+        <label for="id_last_name" class="form-label">Last Name</label>
+        {{ form.last_name }}
+      </div>
+      <div class="mb-3">
+        <label for="id_email" class="form-label">Email</label>
+        {{ form.email }}
+      </div>
+      <div class="mb-3">
+        <label for="id_password1" class="form-label">Password</label>
+        {{ form.password1 }}
+      </div>
+      <div class="mb-3">
+        <label for="id_password2" class="form-label">Confirm Password</label>
+        {{ form.password2 }}
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Register</button>
+    </form>
+    <p class="mt-3">Already have an account? <a href="{% url 'accounts:login' %}">Login here</a>.</p>
+  </section>
+  {% if form.errors %}
+    <div class="alert alert-danger">
+      <ul>
+        {% for field in form %}
+          {% for error in field.errors %}
+            <li>{{ field.label }}: {{ error }}</li>
+          {% endfor %}
+        {% endfor %}
+        {% for error in form.non_field_errors %}
+          <li>{{ error }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endif %}
+</main>
+{% endblock %}

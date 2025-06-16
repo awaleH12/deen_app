@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
+
+:root {
+  --sidebar-bg: #3E0E27;
+  --icons-color: #FF7008;
+  --font-color: #31282D;
+  --bg-cream: #FDF4F4;
+  --bg-white: #fff;
+}
+
+body {
+  background-color: var(--bg-cream);
+  color: var(--font-color);
+  font-family: "Roboto", sans-serif;
+}
+
+body.dark-mode {
+  --sidebar-bg: #1e1e1e;
+  --icons-color: #FF7008;
+  --font-color: #e0e0e0;
+  --bg-cream: #181818;
+  --bg-white: #232323;
+  background-color: var(--bg-cream);
+  color: var(--font-color);
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 80px;
+  background-color: var(--sidebar-bg);
+  transition: width 0.3s ease;
+  overflow: hidden;
+  z-index: 1000; /* Ensure it stays above other elements */
+}
+
+.sidebar.expanded {
+  width: 250px;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: var(--bg-cream);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1rem 0;
+}
+
+.sidebar ul li a {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem !important; /* Override Bootstrap padding */
+  color: var(--bg-cream);
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s;
+}
+
+.sidebar ul li a:hover, .sidebar ul li a.active {
+  background-color: var(--bg-cream);
+  color: var(--font-color);
+}
+
+.sidebar ul li a i {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.sidebar:not(.expanded) .nav_item {
+  display: none;
+}
+
+.sidebar.expanded .nav_item {
+  display: inline;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem !important; /* Override Bootstrap padding */
+  background-color: var(--bg-cream);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 999; /* Ensure it stays above the main content */
+}
+
+body.dark-mode .navbar {
+  background-color: var(--bg-cream);
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.search-bar input {
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  background-color: var(--bg-white);
+  color: var(--font-color);
+}
+
+/* Navbar Icons */
+.navbar-icons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-icon {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--font-color);
+}
+
+/* Profile */
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* Main Content */
+.main-content {
+  margin-left: 80px;
+  padding: 2rem;
+  transition: margin-left 0.3s ease;
+}
+
+.sidebar.expanded ~ .main-content {
+  margin-left: 250px;
+}
+
+/* Dark Mode */
+body.dark-mode .sidebar, body.dark-mode .sidebar .logo {
+  background-color: var(--sidebar-bg);
+  color: var(--font-color);
+}
+body.dark-mode .sidebar ul li a {
+  color: var(--font-color);
+}
+body.dark-mode .sidebar ul li a:hover, body.dark-mode .sidebar ul li a.active {
+  background-color: var(--bg-white);
+  color: var(--sidebar-bg);
+}
+body.dark-mode .main-content {
+  background-color: var(--bg-cream);
+  color: var(--font-color);
+}
+body.dark-mode .search-bar input {
+  background-color: var(--bg-white);
+  color: var(--font-color);
+}
+body.dark-mode .profile-dropdown {
+  background: var(--bg-white);
+  color: var(--font-color);
+}

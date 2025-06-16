@@ -1,0 +1,502 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
+/* Minimal Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%; /* 1rem = 16px */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  line-height: 1.6;
+
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: inherit;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  --header-height: 3.5rem;
+
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --navbar-bg-color: hsl(216, 45%, 98%);
+  --black-color: hsl(220, 24%, 12%);
+  --primary-color: #3e0e27;
+  --secondar-color: rgba(55, 231, 255, 0.4);
+  --header-bg:#F7F9FC;
+  --tertiary-color: #3B657D;
+  --body-font:#31282D;
+  --font-color: #31282D;
+  --bottom-border-color:#e9e6e6;
+  --black-color-light: hsl(220, 24%, 15%);
+  --black-color-lighten: hsl(220, 20%, 18%);
+  --white-color: #fff;
+  --body-color: #FDF4F4;
+  --menu-font-family: "Literata", serif;
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
+}
+
+:root.dark-mode {
+  --navbar-bg-color: hsl(220, 24%, 12%);
+  --primary-color: #FDF4F4;
+  --white-color: #fff;
+  --font-color: #FDF4F4;
+  --bottom-border-color: hsl(220, 24%, 20%);
+}
+
+body.dark-mode {
+  background-color: var(--navbar-bg-color);
+  color: var(--font-color);
+}
+
+/*========== Responsive typography ==========*/
+
+
+
+
+/*=============== HEADER ===============*/
+.logo_text{
+  font-family: "Limelight", sans-serif;
+  font-weight: var(--font-regular);
+  font-size: 2rem;
+  font-style: normal;
+  color: var(--primary-color);
+
+}
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--navbar-bg-color);
+  border-bottom: 1px solid var(--bottom-border-color);
+  box-shadow: 0 1px 1px var(--bottom-border-color);
+  z-index: var(--z-fixed);
+  padding: 0;
+  margin: 0;
+  
+}
+
+/*=============== NAV ===============*/
+.nav{
+  height: var(--header-height);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;  
+  gap: 1rem;
+}
+
+.nav__burger,
+.nav__logo,
+.nav__close{
+  color: var(--primary-color);
+}
+.nav__data{
+ 
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  
+ 
+}
+.nav__logo{
+  display: inline-flex;
+  align-items: center;
+
+  
+  
+}
+
+
+.nav__toggle{
+  position: relative;
+  width: 40px;
+  height: 40px;
+ 
+  
+}
+.join_us_btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--tertiary-color);
+  color: var(--body-color);
+  padding: 0.5rem 1.5rem;
+  font-family: var(--menu-font-family);
+  font-weight: var(--font-semi-bold);
+  font-size: 1.25rem;
+  border-radius: 47px;
+  border: 1px solid var(--tertiary-color);
+  transition: background-color .3s, transform .3s;
+ 
+}
+.join_us_btn:hover{
+  background-color: var(--primary-color);
+  color: var(--body-color);
+  
+}
+.login_bt{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  color: var(--primary-color);
+  padding: 0.5rem 1.5rem;
+  font-family: var(--menu-font-family);
+  font-weight: var(--font-semi-bold);
+  font-size: 1.25rem;
+  border-radius: 47px;
+  box-shadow: inset 0 0 0 1px var(--primary-color);
+  transition: background-color .3s, transform .3s;
+ 
+}
+.login_bt:hover{
+  background-color: var(--primary-color);
+  color: var(--body-color);
+  
+}
+.nav__list{
+  padding: 0;
+  margin: 0;
+
+} 
+.nav__burger,
+.nav__close{
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 2rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+  
+}
+
+.nav__close{
+  opacity: 0;
+}
+/* Navigation for mobile devices */
+@media screen and (max-width:1118px) {
+  .nav__menu {
+    position: absolute;
+    left: -100%; /* Initially hidden */
+    top: 3.5rem;
+    width: 100%;
+    height: calc(100vh - 3.5rem);
+    background-color: var(--primary-color);
+    transition: left 0.4s ease-in-out;
+  }
+
+  .show-menu .nav__menu {
+    left: 0; /* Slide in from the left */
+  }
+
+  .nav__list{
+    background-color: var(--primary-color);
+    /* padding-top: 1rem; */
+    
+  }
+  .nav__toggle i{
+    margin-right: 1rem;
+  }
+  .nav__data a{
+    margin-left: 1rem;
+  }
+  .nav__link {
+    position: relative; /* Required for positioning the ::after element */
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    font-family: var(--menu-font-family);
+    font-weight: var(--font-regular);
+    font-size: 21px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s;
+  }
+  .login_btn{
+    position: relative; /* Required for positioning the ::after element */
+    color: var(--white-color);
+    background-color: var(--primary-color);
+    font-family: var(--menu-font-family);
+    font-weight: var(--font-regular);
+    font-size: 21px;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s;
+  }
+
+  
+}
+
+
+
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0; /* Initially hidden */
+  height: 2px; /* Line height */
+  background-color: var(--bottom-border-color); /* Line color */
+  transition: width 0.45s ease; /* Smooth transition for the line */
+}
+
+
+.nav__link:hover::after {
+  width: 100%; /* Expands the line on hover */
+}
+
+
+
+.nav__link:hover {
+  background-color: var(--black-color-light);
+  color: var(--primary-color);
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+.nav__link:focus,
+.login_btn:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Show menu */
+.show-menu{
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* .nav__dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--navbar-bg-color);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.nav__dropdown-item {
+  padding: 0.75rem 1rem;
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+.nav__dropdown-item:hover {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+} */
+
+.nav__link:hover .nav__dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Dark Mode Toggle and Notification Icon */
+.nav__icons {
+  
+  display: flex;
+  align-items: center; /* Vertically align icons */
+  gap: 1rem; /* Add spacing between icons */
+  
+}
+
+.nav__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.5rem; /* Adjust icon size */
+  cursor: pointer;
+  transition: color 0.3s ease;
+  height: var(--header-height); /* Match the height of the navbar */
+  padding: 0 0.5rem; /* Add horizontal padding for better alignment */
+}
+
+.nav__icon:hover {
+  color: var(--tertiary-color); /* Add hover effect */
+}
+
+
+.nav__icon:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+.login_btn:hover {
+  background-color: var(--primary-color);
+  color: var(--body-color);
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+
+/* For large devices */
+@media screen and (min-width: 1118px) {
+  .container{
+    margin-inline: auto;
+  }
+  /* Nav */
+  .nav{
+    height:var(--header-height);
+   
+    margin: 1.5rem 0 1rem;
+  
+   
+  }
+  .nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-flow: row;
+    width: 100%;
+  }
+  .nav__toggle {
+    display: none;
+  }
+ 
+  .nav__list{
+    height: 100%;
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+    
+
+    
+    
+  }
+  .nav__list a{
+    
+    margin-inline: 1rem;
+
+  }
+  .nav__link {
+    position: relative; 
+    
+    color: var(--primary-color);
+   
+    font-family: var(--menu-font-family);
+    font-weight: var(--font-regular);
+    font-size: 21px;
+    padding: 1.5rem 1.5rem;
+    
+    transition: background-color .3s;
+  }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0; /* Initially hidden */
+    height: 2px; /* Line height */
+    background-color: var(--primary-color); /* Line color */
+    transition: width 0.45s ease; /* Smooth transition for the line */
+  }
+
+  .nav__link {
+ 
+    padding: 0.25rem;
+   
+
+  }
+  .login_btn{
+    background-color: var(--tertiary-color);
+    color: var(--body-color);
+    padding:0.5rem 2rem 0.75rem 2rem;
+ 
+    font-family: var(--menu-font-family);
+    font-weight: var(--font-regular);
+    font-size: 21px;
+
+   
+    border-radius: 47px;
+   
+  }
+
+  .login_btn:hover{
+    background-color: var(--primary-color);
+    color: var(--body-color);
+  }
+  .nav__link:hover {
+    background-color: transparent;
+  }
+  /* Dropdown */
+
+
+  
+}
+@media screen and (min-width: 1152px) {
+  .container {
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,426 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Limelight&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --sidebar-bg: #3E0E27;
+  --sidebar-width: 250px;
+  --sidebar-collapsed-width: 100px;
+  --icons-color: #FF7008;
+  --font-color: #31282D;
+  --bg-cream: #FDF4F4;
+ 
+  --bg-white: #fff;
+  --navbar-bg: #fff;
+  --navbar-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  --transition: 0.3s cubic-bezier(.4,0,.2,1);
+  --profile-dropdown-bg: #fff;
+  --profile-dropdown-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+body {
+  
+  background: var(--bg-cream);
+  color: var(--font-color);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background var(--transition), color var(--transition);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: var(--sidebar-width);
+  height: 100vh;
+  background: var(--sidebar-bg);
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+  z-index: 1000;
+  overflow: hidden;
+  transition: width var(--transition);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
+  padding-right: 0.25rem;
+}
+
+.sidebar .logo {
+  width: fit-content;
+  padding: 1.2rem 1.5rem;
+  font-size: 1.3rem;
+
+
+}
+
+.sidebar .logo-text {
+  font-family: 'Limelight', cursive;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  outline: none;
+  transition: color var(--transition);
+}
+
+.sidebar nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar nav ul li {
+  position: relative;
+}
+
+.sidebar nav ul li a {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 0.9rem 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.08rem;
+  border-radius: 0 2rem 2rem 0;
+  transition: background var(--transition), color var(--transition);
+  position: relative;
+}
+
+.sidebar nav ul li a:hover {
+  background: #efefef; /* lighter accent for hover */
+  color: var(--font-color);
+}
+
+.sidebar nav ul li a.active {
+  /* strong accent for active */
+  color: var(--font-color);
+  background: var(--bg-white);
+}
+
+.sidebar nav ul li a.active i {
+  color: var(--icons-color);
+ 
+}
+
+.sidebar nav ul li a i {
+  font-size: 1.6rem;
+  color: var(--icons-color);
+  min-width: 24px;
+  text-align: center;
+}
+
+.nav_item {
+  transition: opacity var(--transition);
+}
+
+.sidebar:not(.expanded) {
+  width: var(--sidebar-collapsed-width);
+  overflow: hidden;
+}
+
+.sidebar:not(.expanded) .nav_item {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.sidebar.expanded .tooltip {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+.tooltip {
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%) scale(0.95);
+  background: #222;
+  color: #fff;
+  padding: 0.3rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+  margin-left: 0.5rem;
+  z-index: 10;
+}
+
+.sidebar:not(.expanded) ul li a:hover .tooltip,
+.sidebar:not(.expanded) ul li a:focus .tooltip {
+  opacity: 1;
+  transform: translateY(-50%) scale(1);
+}
+
+.main-content {
+  margin-left: var(--sidebar-width);
+  min-height: 100vh;
+  transition: margin-left var(--transition);
+  background: transparent;
+  display: flex;
+  flex-flow: column;
+
+}
+
+.sidebar:not(.expanded) ~ .main-content {
+  margin-left: var(--sidebar-collapsed-width);
+}
+
+.navbar {
+  position: sticky;
+  top: 10px;
+  max-width:  100%;
+  background: var(--navbar-bg);
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.1rem 2rem;
+  box-shadow: var(--navbar-shadow);
+  z-index: 900;
+  transition: background var(--transition);
+  
+}
+.bx-menu{
+  font-size: 1.8rem;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--bg-white);
+  border-radius: 6px;
+  padding: 0.3rem 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+  gap: 0.5rem;
+  transition: background var(--transition), color var(--transition);
+  width: 250px;
+  border: 1px solid #ccc;
+}
+
+.search-bar i {
+  color: var(--icons-color);
+  font-size: 1.3rem;
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--font-color);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  width: 160px;
+  transition: background var(--transition), color var(--transition);
+}
+
+.navbar-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-flow: row;
+  gap: 1.2rem;
+ 
+  padding: 0.25rem 0.5rem;
+  
+}
+
+.nav-icon {
+  background: none;
+  border: none;
+  color: var(--font-color);
+  font-size: 1.7rem;
+  cursor: pointer;
+  position: relative;
+  transition: color var(--transition);
+}
+
+.profile {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--icons-color);
+  transition: border var(--transition);
+}
+
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 110%;
+  background: var(--profile-dropdown-bg);
+  box-shadow: var(--profile-dropdown-shadow);
+  border-radius: 8px;
+  min-width: 160px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px) scale(0.98);
+  transition: opacity 0.2s, transform 0.2s;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-dropdown a {
+  padding: 0.9rem 1.2rem;
+  color: var(--font-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.05rem;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+
+.profile-dropdown a:hover {
+  background: var(--bg-cream);
+}
+
+.profile.open .profile-dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+.dashboard-welcome {
+  margin-top: 2.5rem;
+  padding: 2.5rem 1.5rem;
+  background: var(--bg-white);
+  border-radius: 16px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.dashboard-welcome h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.dashboard-welcome p {
+  font-size: 1.15rem;
+  color: #666;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: var(--sidebar-collapsed-width);
+  }
+  .sidebar {
+    width: var(--sidebar-collapsed-width);
+  }
+  .sidebar.expanded {
+    width: var(--sidebar-width);
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    padding: 0.7rem 1rem;
+  }
+  .main-content {
+    padding: 0.5rem;
+  }
+  .dashboard-welcome {
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+/* Dark Mode */
+html.dark-mode,
+body.dark-mode {
+  --sidebar-bg: #1e1e1e;
+  --icons-color: #FF7008;
+  --font-color: #e0e0e0;
+  --bg-cream: #181818;
+  --bg-white: #232323;
+  --profile-dropdown-bg: #232323;
+}
+
+html.dark-mode,
+body.dark-mode {
+  background: var(--bg-cream);
+  color: var(--font-color);
+}
+
+html.dark-mode .sidebar,
+body.dark-mode .sidebar {
+  background: var(--sidebar-bg);
+  color: var(--font-color);
+}
+
+html.dark-mode .sidebar .logo-text {
+  color: #fff;
+}
+
+html.dark-mode .sidebar nav ul li a {
+  color: var(--font-color);
+}
+
+html.dark-mode .sidebar nav ul li a:hover,
+html.dark-mode .sidebar nav ul li a.active {
+  background: var(--bg-white);
+  color: var(--sidebar-bg);
+}
+
+html.dark-mode .navbar {
+  background: var(--bg-cream);
+  color: var(--font-color);
+}
+
+html.dark-mode .search-bar {
+  background: var(--bg-white);
+}
+
+html.dark-mode .search-bar input {
+  color: var(--font-color);
+}
+
+html.dark-mode .profile-dropdown {
+  background: var(--profile-dropdown-bg);
+  color: var(--font-color);
+}
+
+html.dark-mode .dashboard-welcome {
+  background: var(--bg-white);
+  color: var(--font-color);
+}
+
+html.dark-mode .profile-dropdown a:hover {
+  background: #222;
+}

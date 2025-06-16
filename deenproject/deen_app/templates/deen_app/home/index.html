@@ -1,0 +1,282 @@
+{% extends "deen_app/layouts/base.html" %}
+{% load static %}
+{% block title %}
+Deen App - Home
+{% endblock %}
+{% block content %}
+
+<section class="section1 hero dark-mode container">
+  <div class="container" id="hero">
+    <h1> DEEN APP</h1>
+    <p class="p_body">
+      Badi waxaa dhacda in dadka ay fududaystaan diwaangalinta daymahooda marba hadii aysan ahayn ganacsato.
+    </p>
+    <div class="sub_hero">
+      <div class="inner_sub_hero">
+        <p>
+          App-kaan waxa uu kuu sahlayaa in aad ku kaydsato daymahaan si loo raadiyo kuwa kaa maqan loona bixiyo kuwa kugu maqan.
+        </p>
+        <button type="button" class="btn create_acc_btn dark-mode" aria-label="Create an account">CREATE ACCOUNT</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- search btn cont -->
+ <section>
+    <div class=" search_main_cont container">
+      <div class="search_cont container">
+        <form action="#" class="form_input">
+          <label for="search_field" class="visually-hidden">Search</label>
+<input class="search_input" type="text" placeholder="Halkaan ka raadi magac, naanaysta ama number gaaban" aria-label="Search here" id="search_field">
+          <input class="btn search_btn" type="submit" value="SEARCH HERE" id="search_btn">
+        </form>
+        
+        
+      </div>
+    </div>
+ </section>
+ <!-- deema section -->
+<section class="section">
+  <div class="deemaha_main_cont container">
+
+ 
+    <aside class="filter_section">
+      <div class="filter_title_sect">
+        <p class="filters_title">Filters</p>
+        <hr>
+      </div>
+      <!-- contries section -->
+       <div class="country_city">
+          <label for="country" class="country">Country</label>
+          <input type="text" id="country" class="form-control" placeholder="Search by Country">
+          <label for="city" class="form-label">City</label>
+          <input type="text" id="city" class="form-control" placeholder="Search by City">
+          <hr>
+       </div> 
+       <div class="range_cont">
+          <label for="range_ka_maqan" class="form-label">Ka Maqan</label>
+          <input type="range" class="form-range" min="0" max="5" step="0.5" id="range_ka_maqan">
+          <label for="range_ku_maqan" class="form-label">Ku Maqan</label>
+          <input type="range" class="form-range" min="0" max="5" step="0.5" id="range_ku_maqan">
+          <hr>
+       </div>
+       <div class="search_by_filter">
+          <p class="filter_seach_area">Search By:</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="search_by_ka_maqan">
+            <label class="form-check-label" for="fsearch_by_ka_maqan">
+              Ka Maqan
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="search_by_ku_maqan">
+            <label class="form-check-label" for="search_by_ka_maqan">
+              Ku Maqan
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="search_by_shorcode">
+            <label class="form-check-label" for="search_by_shorcode">
+              Short Code
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="search_by_name">
+            <label class="form-check-label" for="search_by_name">
+              Magaca
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="search_by_location">
+            <label class="form-check-label" for="search_by_location">
+              Location
+            </label>
+          </div>
+            <hr>
+       </div>
+       
+      
+    </aside>
+    <div class="main_content_cont">
+      <div class="ad_section">
+        <div class="ads_info">
+            <div class="ads_title"><span class="ads_text">Deen App</span></div>
+          <div class="ads_description"><p>Your Advertising Partner</p></div>
+          <div class="ads_btn"><button type="button" class="btn" id="ads_call_btn">ADVERTISE HERE</button></div>
+          
+        </div>
+        <div class="ads_image">
+            <img src="{% static 'img/ads_img.jpg' %}" alt="Advertisement image for Deen App">
+        </div>
+      </div>
+     
+      <div class="stats_section">
+        <div class="stats_title">
+          <p>WEBSITE</p>
+          <p>STATICS</p>
+        </div>
+        <div class="stats_data">
+          <div class="users_data">
+            <p>TOTAL USERS</p>
+           <div class="icon_text_bottom">
+            <i class="ri-group-line" aria-hidden="true"></i>
+            $1,250,771 
+           </div>
+          </div>
+          <div class="visiors_data">
+            <p>DAILY VISITORS</p>
+            <div class="icon_text_bottom">
+              <i class="ri-group-line"></i>
+              <span class="white">120,000</span>
+            </div>
+          </div>
+          <div class="active_users_data">
+            <p>ACTIVE USERS</p>
+            <div class="icon_text_bottom">
+              <i class="ri-group-line"></i>
+              <span class="white">300,000</span>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+      <div class="table_section dark-mode">
+        <form action="#">
+          <div class="theader">
+            <div class="search_fannel" id="search_fannel">
+              <div class="fannel_icon">
+                <i class="ri-filter-2-fill"></i>
+              </div>
+              <div class="input-container">
+                <i class="fas fa-search icon"></i> <!-- Font Awesome icon -->
+                <input type="text" placeholder="Search Here">
+              </div>
+            </div>
+            <div class="pay_donate_btn" id="pay_donate_btn">
+              <button type="button" class="btn pay" id="pay_dayn" aria-label="Pay your debt">Pay Dayn</button>
+              <button type="button" class="btn donate" id="donate" aria-label="Donate to support">Donate</button>
+            </div>
+          </div>
+          <table class="table table-responsive table-striped table-hover">
+            <thead class="thead">
+              <tr class="tr">
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Tell</th>
+                <th scope="col">Location</th>
+                <th scope="col">Type</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Badge</th>
+                <th scope="col">More info</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="tr">
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td>@mdo</td>
+              </tr>
+              <tr class="tr">
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@fat</td>
+               
+              </tr>
+              <tr class="tr">
+                <th scope="row">3</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@fat</td>
+              
+              </tr>
+              <tr class="tr">
+                <th scope="row">4</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@fat</td>
+              
+              </tr>
+              <tr class="tr">
+                <th scope="row">5</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td>@fat</td>
+              
+              </tr>
+            </tbody>
+          </table>
+        </form>
+        
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+</div>
+</section>
+<section class="faq_section">
+  <div class="faq container">
+    <h2>FAQ</h2>
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+  Qof Kasta ma isticmaali karaa Deen App? #1
+</button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+            Dadka waawayn profile maloo sameen karaa? #2
+          </button>
+        </h2>
+        <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+            Sidee ku bixiyaa Deen #3
+          </button>
+        </h2>
+        <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+<!-- index.js -->
+<script src="{% static 'js/index.js' %}"></script>

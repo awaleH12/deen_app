@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" class="">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title|default:'Dashboard' }}</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Boxicons CDN -->
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <!-- Dashboard CSS -->
+    <link rel="stylesheet" href="{% static 'css/modern_dashboard.css' %}">
+</head>
+<body>
+    <aside class="sidebar expanded" aria-label="Sidebar Navigation">
+        <div class="logo logo-text">
+            <span class="brand-logo" aria-label="DEEN APP Logo">DEEN APP</span>
+            <!-- <button class="sidebar-toggle" aria-label="Toggle sidebar" tabindex="0">
+                <i class="bx bx-menu"></i>
+            </button> -->
+        </div>
+        <nav>
+            <ul>
+                <li>
+                    <a href="#" class="active" aria-label="Dashboard">
+                        <i class="bx bx-home"></i>
+                        <span class="nav_item">Dashboard</span>
+                        <span class="tooltip">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Debts">
+                        <i class="bx bx-wallet"></i>
+                        <span class="nav_item">Debts</span>
+                        <span class="tooltip">Debts</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Statistics">
+                        <i class="bx bx-bar-chart"></i>
+                        <span class="nav_item">Statistics</span>
+                        <span class="tooltip">Statistics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" aria-label="Settings">
+                        <i class="bx bx-cog"></i>
+                        <span class="nav_item">Settings</span>
+                        <span class="tooltip">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+    <div class="main-content">
+        
+         
+        <header class="navbar" role="banner">
+            <button class="sidebar-toggle" aria-label="Toggle sidebar" tabindex="0">
+              <i class="bx bx-menu"></i>
+          </button>
+            <form class="search-bar" role="search" aria-label="Search">
+                <i class="bx bx-search"></i>
+                <input type="text" placeholder="Search..." aria-label="Search dashboard">
+            </form>
+            <div class="navbar-icons">
+                <button class="nav-icon dark-mode-toggle" aria-label="Toggle dark mode">
+                    <i class="bx bx-moon"></i>
+                </button>
+                <button class="nav-icon" aria-label="Notifications">
+                    <i class="bx bx-bell"></i>
+                </button>
+                <div class="profile" tabindex="0">
+                    <img src="{% static 'img/profile.jpg' %}" alt="Profile" aria-label="Profile avatar">
+                    <div class="profile-dropdown" role="menu" aria-label="Profile menu">
+                        <a href="#" role="menuitem"><i class="bx bx-cog"></i> Settings</a>
+                        <a href="{% url 'accounts:logout' %}" role="menuitem"><i class="bx bx-log-out"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="dashboard-welcome" tabindex="0">
+                <h1>Welcome to the Dashboard</h1>
+                <p>Here you can manage your debts, view statistics, and more.</p>
+            </section>
+        </main>
+    </div>
+    <script src="{% static 'js/dashboard.js' %}"></script>
+</body>
+</html>

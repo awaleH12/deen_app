@@ -1,0 +1,14 @@
+{% extends "deen_app/layouts/base.html" %}
+{% block title %}Account Locked | Deen App{% endblock %}
+{% block content %}
+<main>
+  <section class="login-section container" style="margin-top: 5rem; max-width: 500px;">
+    <h1 class="mb-4">Account Locked</h1>
+    <div class="alert alert-danger" style="background: #fff; padding: 2rem; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); text-align: center;">
+      <p>Your account has been temporarily locked due to too many failed login attempts.</p>
+      <p>Please try again later or contact support if you believe this is a mistake.</p>
+      <a href="{% url 'accounts:login' %}" class="btn btn-primary w-100 mt-3">Back to Login</a>
+    </div>
+  </section>
+</main>
+{% endblock %}
