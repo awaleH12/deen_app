@@ -182,3 +182,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Google OAuth2 (example usage)
 GOOGLE_OAUTH_CLIENT_ID = os.getenv('GOOGLE_OAUTH_CLIENT_ID')
 GOOGLE_OAUTH_CLIENT_SECRET = os.getenv('GOOGLE_OAUTH_CLIENT_SECRET')
+
+
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    # ...existing urls...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

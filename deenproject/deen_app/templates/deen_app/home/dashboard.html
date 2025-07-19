@@ -72,7 +72,11 @@
                     <i class="bx bx-bell"></i>
                 </button>
                 <div class="profile" tabindex="0">
-                    <img src="{% static 'img/profile.jpg' %}" alt="Profile" aria-label="Profile avatar">
+                    {% if request.user.profile.avatar %}
+                        <img src="{{ request.user.profile.avatar.url }}" alt="Profile" aria-label="Profile avatar">
+                    {% else %}
+                        <img src="{% static 'img/john_profile.jpg' %}" alt="Default Profile Image" aria-label="Profile avatar">
+                    {% endif %}
                     <div class="profile-dropdown" role="menu" aria-label="Profile menu">
                         <a href="#" role="menuitem"><i class="bx bx-cog"></i> Settings</a>
                         <a href="{% url 'accounts:logout' %}" role="menuitem"><i class="bx bx-log-out"></i> Logout</a>

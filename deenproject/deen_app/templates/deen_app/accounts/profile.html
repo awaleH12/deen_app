@@ -6,28 +6,17 @@
     <h1 class="mb-4">Edit Profile</h1>
     <form method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {{ user_form.non_field_errors }}
-      <div class="mb-3">
-        <label for="id_first_name" class="form-label">First Name</label>
-        {{ user_form.first_name }}
-      </div>
-      <div class="mb-3">
-        <label for="id_last_name" class="form-label">Last Name</label>
-        {{ user_form.last_name }}
-      </div>
-      <div class="mb-3">
-        <label for="id_email" class="form-label">Email</label>
-        {{ user_form.email }}
-      </div>
-      <div class="mb-3">
-        <label for="id_avatar" class="form-label">Avatar</label><br>
-        {% if profile_form.instance.avatar %}
-          <img src="{{ profile_form.instance.avatar.url }}" alt="Avatar" style="max-width:100px; max-height:100px; margin-bottom:10px;">
-        {% endif %}
-        {{ profile_form.avatar }}
-      </div>
+      {{ user_form.as_p }}
+      {{ profile_form.as_p }}
       <button type="submit" class="btn btn-primary w-100">Save Changes</button>
     </form>
+    <div class="mt-3">
+      {% if request.user.profile.avatar %}
+          <img src="{{ request.user.profile.avatar.url }}" alt="Profile Image" width="150" height="150">
+      {% else %}
+          <img src="{% static 'img/john_profile.jpg' %}" alt="Default Profile Image" width="150" height="150">
+      {% endif %}
+    </div>
   </section>
 </main>
 {% endblock %}
