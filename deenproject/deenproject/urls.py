@@ -24,6 +24,7 @@ urlpatterns = [
     path('deen_app/', include('deen_app.urls')),
     path('users/', include('accounts.urls')),  # Use 'users/' for your custom account views
     path('accounts/', include('allauth.urls')),  # Allauth URLs for social login and email verification
+    path('i18n/', include('django.conf.urls.i18n')),  # Enables language switching
 ]
 
 if settings.DEBUG:

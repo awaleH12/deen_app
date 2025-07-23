@@ -62,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'allauth.account.middleware.AccountMiddleware',  # Required by allauth
+    'django.middleware.locale.LocaleMiddleware',  # For language support
 ]
 
 MIDDLEWARE += ['livereload.middleware.LiveReloadScript']
@@ -190,3 +191,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     # ...existing urls...
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+LANGUAGES = [
+    ('en', 'English'),
+    ('so', 'Somali'),
+]
+LOCALE_PATHS = [BASE_DIR / 'locale']
