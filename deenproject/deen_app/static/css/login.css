@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Limelight&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +14,7 @@ body {
     min-height: 100vh;
 }
 
-.create-account-container {
+.login-account-container {
     display: flex;
     flex-direction: column;
     gap: 60px;
@@ -21,8 +22,9 @@ body {
     justify-content: flex-start;
     min-height: 100vh;
     width: 100%;
-    margin: 7rem 0 2.5rem 0;
+    margin: 8rem 0 2.5rem 0;
     
+
 }
 
 
@@ -37,7 +39,6 @@ body {
         0px 0px 2px 0px rgba(0, 0, 0, 0.08);
     max-width: 500px;
     width: 100%;
-
 }
 
 .form-input-inner {
@@ -48,7 +49,6 @@ body {
     justify-content: flex-start;
     overflow: hidden;
     padding: 15px;
-    
 }
 
 .form-header {
@@ -57,7 +57,7 @@ body {
     align-items: center;
     justify-content: center;
     padding: 0 32px;
-  
+
 }
 
 .form-title {
@@ -69,7 +69,7 @@ body {
     text-align: left;
     white-space: nowrap;
     line-height: 42px;
-   
+
 }
 
 .form-inner-main {
@@ -88,7 +88,7 @@ body {
     gap: 16px;
     align-items: center;
     justify-content: flex-start;
-    
+
 }
 
 .input-row-full {
@@ -98,7 +98,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     width: 416px;
- 
+
 }
 
 .input-group {
@@ -108,7 +108,7 @@ body {
     align-items: flex-start;
     justify-content: center;
     width: 200px;
-    
+
 }
 
 .label {
@@ -140,7 +140,7 @@ body {
     color: rgba(49, 40, 45, 0.5);
     line-height: 30px;
     outline: none;
-    
+
 }
 
 .input-field-full {
@@ -149,7 +149,7 @@ body {
     border-radius: 3px;
     width: 415px;
     position: relative;
-    
+
 }
 
 .input-field-full input {
@@ -256,8 +256,8 @@ body {
     align-items: center;
     justify-content: center;
     width: 416px;
-    
-    
+
+
 }
 
 .or-text {
@@ -389,4 +389,5 @@ body {
     .social-btn {
         width: 100%;
         max-width: 345px;
-    } }
+    }
+}

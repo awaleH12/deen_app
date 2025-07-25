@@ -69,3 +69,24 @@ class UserForm(forms.ModelForm):
             'last_name': forms.TextInput(attrs={'class': 'form-control'}),
             'email': forms.EmailInput(attrs={'class': 'form-control'}),
         }
+
+class LoginForm(forms.Form):
+    username = forms.CharField(
+        label=_('Username'),
+        widget=forms.TextInput(attrs={
+            'placeholder': _('Enter your username'),
+            'class': 'form-control',
+            'id': 'id_username',
+        }),
+        max_length=150,
+        required=True,
+    )
+    password = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput(attrs={
+            'placeholder': _('Enter your password'),
+            'class': 'form-control',
+            'id': 'id_password',
+        }),
+        required=True,
+    )
